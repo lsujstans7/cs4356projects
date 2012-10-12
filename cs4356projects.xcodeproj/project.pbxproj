@@ -18,6 +18,11 @@
 		B01CC9921628928100666B55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B01CC9911628928100666B55 /* Default-568h@2x.png */; };
 		B01CC9951628928100666B55 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B01CC9931628928100666B55 /* MainStoryboard.storyboard */; };
 		B01CC9981628928100666B55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01CC9971628928100666B55 /* ViewController.m */; };
+		B01CC9A0162892F000666B55 /* Project1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01CC99F162892F000666B55 /* Project1Cell.m */; };
+		B01CC9A2162899D300666B55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A1162899D300666B55 /* QuartzCore.framework */; };
+		B01CC9A4162899E300666B55 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A3162899E300666B55 /* GLKit.framework */; };
+		B01CC9A6162899EB00666B55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A5162899EB00666B55 /* OpenGLES.framework */; };
+		B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,13 @@
 		B01CC9941628928100666B55 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B01CC9961628928100666B55 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B01CC9971628928100666B55 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B01CC99E162892F000666B55 /* Project1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project1Cell.h; sourceTree = "<group>"; };
+		B01CC99F162892F000666B55 /* Project1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project1Cell.m; sourceTree = "<group>"; };
+		B01CC9A1162899D300666B55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B01CC9A3162899E300666B55 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		B01CC9A5162899EB00666B55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project1GLKitViewController.h; sourceTree = "<group>"; };
+		B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project1GLKitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B01CC9A6162899EB00666B55 /* OpenGLES.framework in Frameworks */,
+				B01CC9A4162899E300666B55 /* GLKit.framework in Frameworks */,
+				B01CC9A2162899D300666B55 /* QuartzCore.framework in Frameworks */,
 				B01CC97C1628928100666B55 /* UIKit.framework in Frameworks */,
 				B01CC97E1628928100666B55 /* Foundation.framework in Frameworks */,
 				B01CC9801628928100666B55 /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +71,9 @@
 		B01CC96C1628928100666B55 = {
 			isa = PBXGroup;
 			children = (
+				B01CC9A5162899EB00666B55 /* OpenGLES.framework */,
+				B01CC9A3162899E300666B55 /* GLKit.framework */,
+				B01CC9A1162899D300666B55 /* QuartzCore.framework */,
 				B01CC9811628928100666B55 /* cs4356projects */,
 				B01CC97A1628928100666B55 /* Frameworks */,
 				B01CC9781628928100666B55 /* Products */,
@@ -85,6 +103,10 @@
 			children = (
 				B01CC98A1628928100666B55 /* AppDelegate.h */,
 				B01CC98B1628928100666B55 /* AppDelegate.m */,
+				B01CC99E162892F000666B55 /* Project1Cell.h */,
+				B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */,
+				B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */,
+				B01CC99F162892F000666B55 /* Project1Cell.m */,
 				B01CC9931628928100666B55 /* MainStoryboard.storyboard */,
 				B01CC9961628928100666B55 /* ViewController.h */,
 				B01CC9971628928100666B55 /* ViewController.m */,
@@ -176,6 +198,8 @@
 				B01CC9881628928100666B55 /* main.m in Sources */,
 				B01CC98C1628928100666B55 /* AppDelegate.m in Sources */,
 				B01CC9981628928100666B55 /* ViewController.m in Sources */,
+				B01CC9A0162892F000666B55 /* Project1Cell.m in Sources */,
+				B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

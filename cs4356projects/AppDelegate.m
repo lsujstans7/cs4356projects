@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <GLKit/GLKit.h>
 
 @implementation AppDelegate
 
