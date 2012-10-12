@@ -12,14 +12,20 @@
 {
     float _curRed;
     BOOL _increasing;
+    
+    Shader *shade;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
+
+- (void) initGL;
+
 @end
 
 @implementation Project1GLKitViewController
 @synthesize context = _context;
 
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +34,7 @@
     }
     return self;
 }
+*/
 
 - (void)viewDidLoad
 {
@@ -41,12 +48,25 @@
     
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
+    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    
+    [self initGL];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) initGL
+{
+    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
+    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
+    NSString *meshPathname = [[NSBundle mainBundle] pathForResource:@"bunny"  ofType:@"dat"];
+    
+    //shade = [[Shader alloc] initWithVert:vertPathname frag:fragPathname];
 }
 
 #pragma mark - GLKViewDelegate

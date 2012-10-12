@@ -23,6 +23,9 @@
 		B01CC9A4162899E300666B55 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A3162899E300666B55 /* GLKit.framework */; };
 		B01CC9A6162899EB00666B55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A5162899EB00666B55 /* OpenGLES.framework */; };
 		B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */; };
+		B0B5DE7C1628A2D000185D2D /* bunny.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0B5DE7B1628A2D000185D2D /* bunny.dat */; };
+		B0B5DE7F1628A2EA00185D2D /* Shader.fsh in Sources */ = {isa = PBXBuildFile; fileRef = B0B5DE7D1628A2EA00185D2D /* Shader.fsh */; };
+		B0B5DE801628A2EA00185D2D /* Shader.vsh in Sources */ = {isa = PBXBuildFile; fileRef = B0B5DE7E1628A2EA00185D2D /* Shader.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,13 @@
 		B01CC9A5162899EB00666B55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project1GLKitViewController.h; sourceTree = "<group>"; };
 		B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project1GLKitViewController.m; sourceTree = "<group>"; };
+		B0B5DE761628A2AA00185D2D /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		B0B5DE771628A2AA00185D2D /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		B0B5DE791628A2C700185D2D /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		B0B5DE7A1628A2C700185D2D /* Mesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
+		B0B5DE7B1628A2D000185D2D /* bunny.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.dat; sourceTree = "<group>"; };
+		B0B5DE7D1628A2EA00185D2D /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		B0B5DE7E1628A2EA00185D2D /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +113,17 @@
 			children = (
 				B01CC98A1628928100666B55 /* AppDelegate.h */,
 				B01CC98B1628928100666B55 /* AppDelegate.m */,
+				B0B5DE7D1628A2EA00185D2D /* Shader.fsh */,
+				B0B5DE7E1628A2EA00185D2D /* Shader.vsh */,
+				B0B5DE791628A2C700185D2D /* Mesh.h */,
+				B0B5DE7A1628A2C700185D2D /* Mesh.m */,
 				B01CC99E162892F000666B55 /* Project1Cell.h */,
 				B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */,
 				B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */,
 				B01CC99F162892F000666B55 /* Project1Cell.m */,
 				B01CC9931628928100666B55 /* MainStoryboard.storyboard */,
+				B0B5DE761628A2AA00185D2D /* Shader.h */,
+				B0B5DE771628A2AA00185D2D /* Shader.m */,
 				B01CC9961628928100666B55 /* ViewController.h */,
 				B01CC9971628928100666B55 /* ViewController.m */,
 				B01CC9821628928100666B55 /* Supporting Files */,
@@ -118,6 +134,7 @@
 		B01CC9821628928100666B55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0B5DE7B1628A2D000185D2D /* bunny.dat */,
 				B01CC9831628928100666B55 /* cs4356projects-Info.plist */,
 				B01CC9841628928100666B55 /* InfoPlist.strings */,
 				B01CC9871628928100666B55 /* main.m */,
@@ -185,6 +202,7 @@
 				B01CC9901628928100666B55 /* Default@2x.png in Resources */,
 				B01CC9921628928100666B55 /* Default-568h@2x.png in Resources */,
 				B01CC9951628928100666B55 /* MainStoryboard.storyboard in Resources */,
+				B0B5DE7C1628A2D000185D2D /* bunny.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +218,8 @@
 				B01CC9981628928100666B55 /* ViewController.m in Sources */,
 				B01CC9A0162892F000666B55 /* Project1Cell.m in Sources */,
 				B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */,
+				B0B5DE7F1628A2EA00185D2D /* Shader.fsh in Sources */,
+				B0B5DE801628A2EA00185D2D /* Shader.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +336,7 @@
 				B01CC99D1628928100666B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
