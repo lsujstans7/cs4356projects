@@ -64,8 +64,8 @@
 {
     [EAGLContext setCurrentContext:self.context];
     
-    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"BrickVertex" ofType:@"glsl"];
-    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"BrickFragment" ofType:@"glsl"];
+    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"SimpleVertex" ofType:@"glsl"];
+    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"SimpleFragment" ofType:@"glsl"];
     NSString *meshPathname = [[NSBundle mainBundle] pathForResource:self.meshName  ofType:@"dat"];
     NSLog(@"%@", self.meshName);
     
