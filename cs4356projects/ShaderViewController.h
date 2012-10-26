@@ -11,10 +11,14 @@
 @class ShaderViewController;
 @protocol ShaderViewControllerDelegate <NSObject>
 
-
+-(void)shaderViewController:(ShaderViewController *)shaderVC didSaveOption:(NSString *)newShader;
 
 @end
 
 @interface ShaderViewController : UITableViewController
+
+@property (weak, nonatomic) id <ShaderViewControllerDelegate> delegate;
+
+@property (nonatomic, strong) NSMutableArray *shaders;
 
 @end

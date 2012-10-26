@@ -24,6 +24,9 @@
 @implementation Project1GLKitViewController
 @synthesize context = _context;
 @synthesize meshName = _meshName;
+@synthesize vertShaderName = _vertShaderName;
+@synthesize shaderName = _shaderName;
+@synthesize fragShaderName = _fragShaderName;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -64,8 +67,8 @@
 {
     [EAGLContext setCurrentContext:self.context];
     
-    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"SimpleVertex" ofType:@"glsl"];
-    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"SimpleFragment" ofType:@"glsl"];
+    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:self.vertShaderName ofType:@"glsl"];
+    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:self.fragShaderName ofType:@"glsl"];
     NSString *meshPathname = [[NSBundle mainBundle] pathForResource:self.meshName  ofType:@"dat"];
     NSLog(@"%@", self.meshName);
     
@@ -91,6 +94,22 @@
     glEnable(GL_DEPTH_TEST);
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShaderViewSegue"]) {
+        ShaderViewController *shaderVC = segue.destinationViewController;
+        shaderVC.delegate = self;
+        
+    }
+}
+
+-(void)shaderViewController:(ShaderViewController *)shaderVC didSaveOption:(NSString *)newShader
+{
+    self.shaderName = newShader;
+    self.vertShaderName = [self.shaderName stringByAppendingString:@"Vertex"];
+    self.fragShaderName = [self.shaderName stringByAppendingString:@"Fragment"];
+    [self initGL];
+}
 
 
 #pragma mark - GLKViewDelegate

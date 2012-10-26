@@ -10,9 +10,10 @@
 #import <GLKit/GLKit.h>
 
 #import "Shader.h"
+#import "ShaderViewController.h"
 #import "Mesh.h"
 
-@interface Project1GLKitViewController : GLKViewController
+@interface Project1GLKitViewController : GLKViewController <ShaderViewControllerDelegate>
 {
     Shader *shade;
     Mesh   *mesh;
@@ -41,7 +42,9 @@
 }
 
 @property (nonatomic, strong) NSString *meshName;
-
+@property (nonatomic, strong) NSString *shaderName;
+@property (nonatomic, strong) NSString *vertShaderName;
+@property (nonatomic, strong) NSString *fragShaderName;
 
 
 @end

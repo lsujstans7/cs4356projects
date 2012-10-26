@@ -7,12 +7,14 @@
 //
 
 #import "ShaderViewController.h"
+#import "Project1Cell.h"
 
 @interface ShaderViewController ()
 
 @end
 
 @implementation ShaderViewController
+@synthesize shaders = _shaders;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +28,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.shaders = [NSMutableArray array];
+    [self.shaders addObject:@"Simple"];
+    [self.shaders addObject:@"Pink"];
+    [self.shaders addObject:@"Red"];
+    [self.shaders addObject:@"Blue"];
+    [self.shaders addObject:@"Green"];
+    [self.shaders addObject:@"Brick"];
+    [self.shaders addObject:@"Wave"];
+    [self.shaders addObject:@"Toon"];
+
+
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,25 +59,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.shaders.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    Project1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"Project1Cell"];
+    NSString *instance = [self.shaders objectAtIndex:indexPath.row];
+    cell.project1CellLabel.text = instance;
     return cell;
 }
 
@@ -116,6 +127,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.delegate shaderViewController:self didSaveOption:[self.shaders objectAtIndex:indexPath.row]];
+    }];
+    
 }
 
 @end
