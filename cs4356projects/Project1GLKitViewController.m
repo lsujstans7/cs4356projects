@@ -13,7 +13,6 @@
     float _curRed;
     BOOL _increasing;
     
-    Shader *shade;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -24,6 +23,7 @@
 
 @implementation Project1GLKitViewController
 @synthesize context = _context;
+@synthesize meshName = _meshName;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,7 +51,7 @@
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
     [self initGL];
-    
+        
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,38 +62,117 @@
 
 - (void) initGL
 {
-    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"vsh"];
-    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"Shader" ofType:@"fsh"];
-    NSString *meshPathname = [[NSBundle mainBundle] pathForResource:@"bunny"  ofType:@"dat"];
+    [EAGLContext setCurrentContext:self.context];
     
-    //shade = [[Shader alloc] initWithVert:vertPathname frag:fragPathname];
+    NSString *vertPathname = [[NSBundle mainBundle] pathForResource:@"BrickVertex" ofType:@"glsl"];
+    NSString *fragPathname = [[NSBundle mainBundle] pathForResource:@"BrickFragment" ofType:@"glsl"];
+    NSString *meshPathname = [[NSBundle mainBundle] pathForResource:self.meshName  ofType:@"dat"];
+    NSLog(@"%@", self.meshName);
+    
+    // Initialize the shader.
+    
+    shade = [[Shader alloc] initWithVert:vertPathname
+                                    frag:fragPathname];
+    
+    uni_MVP = [shade uniform:@"modelViewProjectionMatrix"];
+    uni_N   = [shade uniform:@"normalMatrix"];
+    uni_brick_color = [shade uniform:@"brick_color"];
+    uni_mortar_color = [shade uniform:@"mortar_color"];
+    uni_brick_size = [shade uniform:@"brick_size"];
+    uni_brick_frac = [shade uniform:@"brick_frac"];
+    
+    
+    // Initialize the model.
+    
+    mesh = [[Mesh alloc] initWithFile:meshPathname];
+    
+    // Set other global GL state.
+    
+    glEnable(GL_DEPTH_TEST);
 }
+
+
 
 #pragma mark - GLKViewDelegate
 
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+
+
+- (void) glkView:(GLKView *) view drawInRect:(CGRect) rect
+{
+    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glClearColor(_curRed, 0.0, 0.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
+    [shade use];
     
+    glUniformMatrix4fv(uni_MVP, 1, 0, MVP.m);
+    glUniformMatrix3fv(uni_N,   1, 0, N.m);
+    glUniform3f(uni_brick_color, 1.0f, 0.0f, 0.0f);
+    glUniform3f(uni_mortar_color, 0.46f, 0.53f, 0.59f);
+    glUniform2f(uni_brick_size, 0.25f, 0.25f);
+    glUniform2f(uni_brick_frac, 0.9f, 0.9f);
+    
+    [mesh draw];
 }
 
 #pragma mark - GLKViewControllerDelegate
 
-- (void)update {
-    if (_increasing) {
-        _curRed += 1.0 * self.timeSinceLastUpdate;
-    } else {
-        _curRed -= 1.0 * self.timeSinceLastUpdate;
-    }
-    if (_curRed >= 1.0) {
-        _curRed = 1.0;
-        _increasing = NO;
-    }
-    if (_curRed <= 0.0) {
-        _curRed = 0.0;
-        _increasing = YES;
-    }
+- (void) update
+{
+    GLKMatrix4 P;
+    GLKMatrix4 V;
+    GLKMatrix4 M;
+    GLKMatrix4 MV;
+    
+    // Perspective matrix.
+    
+    float fov    = GLKMathDegreesToRadians(45.0f);
+    float aspect = fabsf(self.view.bounds.size.width
+                         / self.view.bounds.size.height);
+    
+    P   = GLKMatrix4MakePerspective(fov, aspect, 0.1f, 100.0f);
+    
+    // View matrix.
+    
+    V   = GLKMatrix4MakeTranslation(0.0f, 0.0f, -2.0f);
+    
+    // Model matrix.
+    
+    M   = GLKMatrix4MakeRotation(rotx, 1.0f,  0.0f, 0.0f);
+    M   = GLKMatrix4Rotate   (M, roty, 0.0f,  1.0f, 0.0f);
+    M   = GLKMatrix4Translate(M,       0.0f, -0.5f, 0.0f);
+    
+    // MVP.
+    
+    MV  = GLKMatrix4Multiply(V, M);
+    N   = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(MV), NULL);
+    MVP = GLKMatrix4Multiply(P, MV);
 }
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSUInteger touchCount = 0;
+    for (UITouch *touch in touches)
+    {
+        touchCount++;
+    }
+    NSLog(@"%d", touchCount);
+    UITouch *touch = [touches anyObject];
+    start = [touch locationInView:self.view];
+    rotx0 = rotx;
+    roty0 = roty;
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self.view];
+    
+    int dx = point.y - start.y;
+    int dy = point.x - start.x;
+    
+    rotx = rotx0 + dx / 200.0;
+    roty = roty0 + dy / 200.0;
+}
+
 
 @end

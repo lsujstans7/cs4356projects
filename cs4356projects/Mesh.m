@@ -1,3 +1,11 @@
+//
+//  Mesh.m
+//  cs4356projects
+//
+//  Created by Johnathan Stansbury on 10/26/12.
+//  Copyright (c) 2012 LSU. All rights reserved.
+//
+
 #import <GLKit/GLKit.h>
 
 #import "Mesh.h"
@@ -7,7 +15,7 @@
 - (id) initWithFile:(NSString *) name
 {
     FILE *fp;
-
+    
     if ((fp = fopen([name UTF8String], "r")))
     {
         // Load the mesh data from the named file.
@@ -16,18 +24,18 @@
         
         verts = (struct vert *) malloc(nverts * sizeof (struct vert));
         elems = (struct elem *) malloc(nelems * sizeof (struct elem));
-
+        
         for (int i = 0; i < nverts; i++)
-            fscanf(fp, "%f %f %f %f %f %f\n",
+            fscanf(fp, "v %f %f %f %f %f %f\n",
                    &verts[i].v[0], &verts[i].v[1], &verts[i].v[2],
                    &verts[i].n[0], &verts[i].n[1], &verts[i].n[2]);
-
+        
         for (int i = 0; i < nelems; i++)
-            fscanf(fp, "%d %d %d\n",
+            fscanf(fp, "t %d %d %d\n",
                    &elems[i].i[0], &elems[i].i[1], &elems[i].i[2]);
-
+        
         fclose(fp);
-    
+        
         // Copy the mesh data to a pair of buffer objects.
         
         glGenVertexArraysOES(1, &arrays);
@@ -36,12 +44,12 @@
             glGenBuffers(1,              &vbo);
             glBindBuffer(GL_ARRAY_BUFFER, vbo);
             glBufferData(GL_ARRAY_BUFFER, nverts * sizeof (struct vert),
-                                           verts, GL_STATIC_DRAW);
-
+                         verts, GL_STATIC_DRAW);
+            
             glGenBuffers(1,                      &ebo);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, nelems * sizeof (struct elem),
-                                                   elems, GL_STATIC_DRAW);
+                         elems, GL_STATIC_DRAW);
             
             glEnableVertexAttribArray(GLKVertexAttribPosition);
             glVertexAttribPointer    (GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE,

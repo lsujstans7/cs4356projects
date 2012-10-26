@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Project1Cell.h"
+#import "Project1GLKitViewController.h"
 
 @interface ViewController ()
 
@@ -24,8 +25,8 @@
     self.options = [NSMutableArray array];
     
     [self.options addObject:@"747"];
-    [self.options addObject:@"icosa"];
-    [self.options addObject:@"rabbit"];
+    [self.options addObject:@"icosahedron"];
+    [self.options addObject:@"bunny"];
     [self.options addObject:@"square"];
     [self.options addObject:@"teapot"];
 }
@@ -50,6 +51,17 @@
     cell.project1CellLabel.text = instance;
     return cell;
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"GLSegue"]) {
+        Project1GLKitViewController *glVC = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.optionsTableView indexPathForSelectedRow];
+        glVC.meshName = [self.options objectAtIndex:indexPath.row];
+        [self.optionsTableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+    }
 }
 
 

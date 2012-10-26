@@ -37,7 +37,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="project1CellLabel" destination="wqN-SS-wOT" id="8Vz-ZF-hdb"/>
-                                            <segue destination="qi7-EG-I7f" kind="push" id="jOP-ZY-gtd"/>
+                                            <segue destination="qi7-EG-I7f" kind="push" identifier="GLSegue" id="jOP-ZY-gtd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -95,26 +95,6 @@
             <point key="canvasLocation" x="-716" y="710"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="Project1Cell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Project1Cell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="project1CellLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="Project1GLKitViewController" superclassName="GLKViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Project1GLKitViewController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="optionsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -1,3 +1,11 @@
+//
+//  Shader.m
+//  cs4356projects
+//
+//  Created by Johnathan Stansbury on 10/26/12.
+//  Copyright (c) 2012 LSU. All rights reserved.
+//
+
 #import <GLKit/GLKit.h>
 
 #import "Shader.h"
@@ -7,10 +15,10 @@
 - (id) initWithVert:(NSString *) vertPathname frag:(NSString *) fragPathname
 {
     // Compile the shaders.
- 
+    
     vertShader = [self compile:GL_VERTEX_SHADER   file:vertPathname];
     fragShader = [self compile:GL_FRAGMENT_SHADER file:fragPathname];
-
+    
     
     program    = [self link:vertShader with:fragShader];
     
@@ -62,7 +70,7 @@
         [self logShader:shader];
         
         glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-
+        
         if (status == 0)
         {
             glDeleteShader(shader);
@@ -70,7 +78,7 @@
         }
     }
     else NSLog(@"Failed to load vertex shader");
-
+    
     return shader;
 }
 
@@ -99,10 +107,10 @@
         // Log any errors and check the link status.
         
         [self logProgram:prog];
-
+        
         GLint status;
         glGetProgramiv(prog, GL_LINK_STATUS, &status);
-
+        
         if (status == 0)
         {
             glDeleteProgram(prog);

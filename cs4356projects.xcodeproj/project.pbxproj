@@ -23,9 +23,17 @@
 		B01CC9A4162899E300666B55 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A3162899E300666B55 /* GLKit.framework */; };
 		B01CC9A6162899EB00666B55 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01CC9A5162899EB00666B55 /* OpenGLES.framework */; };
 		B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */; };
-		B0B5DE7C1628A2D000185D2D /* bunny.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0B5DE7B1628A2D000185D2D /* bunny.dat */; };
-		B0B5DE7F1628A2EA00185D2D /* Shader.fsh in Sources */ = {isa = PBXBuildFile; fileRef = B0B5DE7D1628A2EA00185D2D /* Shader.fsh */; };
-		B0B5DE801628A2EA00185D2D /* Shader.vsh in Sources */ = {isa = PBXBuildFile; fileRef = B0B5DE7E1628A2EA00185D2D /* Shader.vsh */; };
+		B0AA9581163B0451004E9C08 /* Shader.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AA9580163B0451004E9C08 /* Shader.m */; };
+		B0AA9584163B0496004E9C08 /* Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AA9583163B0496004E9C08 /* Mesh.m */; };
+		B0AA958A163B07AE004E9C08 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B0AA9589163B07AE004E9C08 /* SimpleVertex.glsl */; };
+		B0AA958C163B07C2004E9C08 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B0AA958B163B07C2004E9C08 /* SimpleFragment.glsl */; };
+		B0AA9592163B1FE1004E9C08 /* 747.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0AA9591163B1FE1004E9C08 /* 747.dat */; };
+		B0AA9594163B212C004E9C08 /* teapot.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0AA9593163B212C004E9C08 /* teapot.dat */; };
+		B0AA9598163B21CD004E9C08 /* icosahedron.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0AA9597163B21CC004E9C08 /* icosahedron.dat */; };
+		B0AA959A163B2210004E9C08 /* square.dat in Resources */ = {isa = PBXBuildFile; fileRef = B0AA9599163B2210004E9C08 /* square.dat */; };
+		B0AA95A2163B2490004E9C08 /* BrickVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B0AA95A1163B2490004E9C08 /* BrickVertex.glsl */; };
+		B0AA95A4163B249F004E9C08 /* BrickFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = B0AA95A3163B249F004E9C08 /* BrickFragment.glsl */; };
+		B0AA95A7163B2C73004E9C08 /* ShaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AA95A6163B2C73004E9C08 /* ShaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,13 +60,21 @@
 		B01CC9A5162899EB00666B55 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project1GLKitViewController.h; sourceTree = "<group>"; };
 		B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project1GLKitViewController.m; sourceTree = "<group>"; };
-		B0B5DE761628A2AA00185D2D /* Shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
-		B0B5DE771628A2AA00185D2D /* Shader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
-		B0B5DE791628A2C700185D2D /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
-		B0B5DE7A1628A2C700185D2D /* Mesh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
-		B0B5DE7B1628A2D000185D2D /* bunny.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.dat; sourceTree = "<group>"; };
-		B0B5DE7D1628A2EA00185D2D /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		B0B5DE7E1628A2EA00185D2D /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		B0AA957B163B0317004E9C08 /* bunny.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = bunny.dat; sourceTree = "<group>"; };
+		B0AA957F163B0451004E9C08 /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		B0AA9580163B0451004E9C08 /* Shader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shader.m; sourceTree = "<group>"; };
+		B0AA9582163B0496004E9C08 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		B0AA9583163B0496004E9C08 /* Mesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
+		B0AA9589163B07AE004E9C08 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
+		B0AA958B163B07C2004E9C08 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
+		B0AA9591163B1FE1004E9C08 /* 747.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 747.dat; sourceTree = "<group>"; };
+		B0AA9593163B212C004E9C08 /* teapot.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teapot.dat; sourceTree = "<group>"; };
+		B0AA9597163B21CC004E9C08 /* icosahedron.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icosahedron.dat; sourceTree = "<group>"; };
+		B0AA9599163B2210004E9C08 /* square.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = square.dat; sourceTree = "<group>"; };
+		B0AA95A1163B2490004E9C08 /* BrickVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrickVertex.glsl; sourceTree = "<group>"; };
+		B0AA95A3163B249F004E9C08 /* BrickFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BrickFragment.glsl; sourceTree = "<group>"; };
+		B0AA95A5163B2C73004E9C08 /* ShaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderViewController.h; sourceTree = "<group>"; };
+		B0AA95A6163B2C73004E9C08 /* ShaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,19 +129,28 @@
 			children = (
 				B01CC98A1628928100666B55 /* AppDelegate.h */,
 				B01CC98B1628928100666B55 /* AppDelegate.m */,
-				B0B5DE7D1628A2EA00185D2D /* Shader.fsh */,
-				B0B5DE7E1628A2EA00185D2D /* Shader.vsh */,
-				B0B5DE791628A2C700185D2D /* Mesh.h */,
-				B0B5DE7A1628A2C700185D2D /* Mesh.m */,
+				B0AA957F163B0451004E9C08 /* Shader.h */,
+				B0AA9580163B0451004E9C08 /* Shader.m */,
+				B0AA9582163B0496004E9C08 /* Mesh.h */,
+				B0AA9583163B0496004E9C08 /* Mesh.m */,
 				B01CC99E162892F000666B55 /* Project1Cell.h */,
 				B01CC9AA16289B8D00666B55 /* Project1GLKitViewController.h */,
+				B0AA95A5163B2C73004E9C08 /* ShaderViewController.h */,
+				B0AA95A6163B2C73004E9C08 /* ShaderViewController.m */,
 				B01CC9AB16289B8D00666B55 /* Project1GLKitViewController.m */,
+				B0AA9589163B07AE004E9C08 /* SimpleVertex.glsl */,
+				B0AA958B163B07C2004E9C08 /* SimpleFragment.glsl */,
+				B0AA95A1163B2490004E9C08 /* BrickVertex.glsl */,
+				B0AA95A3163B249F004E9C08 /* BrickFragment.glsl */,
 				B01CC99F162892F000666B55 /* Project1Cell.m */,
 				B01CC9931628928100666B55 /* MainStoryboard.storyboard */,
-				B0B5DE761628A2AA00185D2D /* Shader.h */,
-				B0B5DE771628A2AA00185D2D /* Shader.m */,
 				B01CC9961628928100666B55 /* ViewController.h */,
 				B01CC9971628928100666B55 /* ViewController.m */,
+				B0AA957B163B0317004E9C08 /* bunny.dat */,
+				B0AA9597163B21CC004E9C08 /* icosahedron.dat */,
+				B0AA9591163B1FE1004E9C08 /* 747.dat */,
+				B0AA9599163B2210004E9C08 /* square.dat */,
+				B0AA9593163B212C004E9C08 /* teapot.dat */,
 				B01CC9821628928100666B55 /* Supporting Files */,
 			);
 			path = cs4356projects;
@@ -134,7 +159,6 @@
 		B01CC9821628928100666B55 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0B5DE7B1628A2D000185D2D /* bunny.dat */,
 				B01CC9831628928100666B55 /* cs4356projects-Info.plist */,
 				B01CC9841628928100666B55 /* InfoPlist.strings */,
 				B01CC9871628928100666B55 /* main.m */,
@@ -202,7 +226,14 @@
 				B01CC9901628928100666B55 /* Default@2x.png in Resources */,
 				B01CC9921628928100666B55 /* Default-568h@2x.png in Resources */,
 				B01CC9951628928100666B55 /* MainStoryboard.storyboard in Resources */,
-				B0B5DE7C1628A2D000185D2D /* bunny.dat in Resources */,
+				B0AA958A163B07AE004E9C08 /* SimpleVertex.glsl in Resources */,
+				B0AA958C163B07C2004E9C08 /* SimpleFragment.glsl in Resources */,
+				B0AA9592163B1FE1004E9C08 /* 747.dat in Resources */,
+				B0AA9594163B212C004E9C08 /* teapot.dat in Resources */,
+				B0AA9598163B21CD004E9C08 /* icosahedron.dat in Resources */,
+				B0AA959A163B2210004E9C08 /* square.dat in Resources */,
+				B0AA95A2163B2490004E9C08 /* BrickVertex.glsl in Resources */,
+				B0AA95A4163B249F004E9C08 /* BrickFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +249,9 @@
 				B01CC9981628928100666B55 /* ViewController.m in Sources */,
 				B01CC9A0162892F000666B55 /* Project1Cell.m in Sources */,
 				B01CC9AC16289B8D00666B55 /* Project1GLKitViewController.m in Sources */,
-				B0B5DE7F1628A2EA00185D2D /* Shader.fsh in Sources */,
-				B0B5DE801628A2EA00185D2D /* Shader.vsh in Sources */,
+				B0AA9581163B0451004E9C08 /* Shader.m in Sources */,
+				B0AA9584163B0496004E9C08 /* Mesh.m in Sources */,
+				B0AA95A7163B2C73004E9C08 /* ShaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

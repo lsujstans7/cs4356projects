@@ -14,8 +14,33 @@
 
 @interface Project1GLKitViewController : GLKViewController
 {
+    Shader *shade;
+    Mesh   *mesh;
+        
+    float rotx;
+    float roty;
     
+    float rotx0;
+    float roty0;
+    
+    GLKMatrix4 MVP;
+    GLKMatrix3 N;
+    GLKMatrix3 brick_color;
+    GLKMatrix3 mortar_color;
+    GLKMatrix2 brick_size;
+    GLKMatrix2 brick_frac;
+    
+    GLuint uni_MVP;
+    GLuint uni_N;
+    GLuint uni_brick_color;
+    GLuint uni_mortar_color;
+    GLuint uni_brick_size;
+    GLuint uni_brick_frac;
+    
+    CGPoint start;
 }
+
+@property (nonatomic, strong) NSString *meshName;
 
 
 
